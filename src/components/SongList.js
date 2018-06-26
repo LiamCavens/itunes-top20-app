@@ -7,7 +7,11 @@ class SongList extends Component {
     const songListItems = this.props.songs.map(song => {
       return (
         <li key={song.id}>
-          <Song smallImage={song.smallImage} fullTitle={song.fullTitle} />
+          <Song
+            smallImage={song.smallImage}
+            fullTitle={song.fullTitle}
+            selectSong={song.selectSong}
+          />
         </li>
       );
     });

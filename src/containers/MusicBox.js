@@ -8,7 +8,13 @@ class MusicBox extends Component {
     super(props);
     this.state = {
       songs: [],
-      selectedSong: ""
+      selectedSong: {
+        artist: "",
+        album: "",
+        name: "",
+        largeImage: "",
+        sample: ""
+      }
     };
 
     this.handleSongSelect = this.handleSongSelect.bind(this);
@@ -22,7 +28,7 @@ class MusicBox extends Component {
         const songs = response.feed.entry.map((song, index) => ({
           id: song.id.attributes["im:id"],
           artist: song["im:artist"].label,
-          album: song["im:collection"].label,
+          album: song["im:collection"]["im:name"].label,
           name: song["im:name"].label,
           smallImage: song["im:image"][1].label,
           largeImage: song["im:image"][2].label,
@@ -30,28 +36,27 @@ class MusicBox extends Component {
           fullTitle: song.title.label,
           selectSong: this.makeHandleSongSelect(index)
         }));
-        this.setState({ songs });
+        const selectedSong = songs[0];
+        this.setState({ songs, selectedSong });
       });
   }
 
   makeHandleSongSelect(index) {
-      return (
-          
-      )
+    return () => {
+      this.handleSongSelect(index);
+    };
   }
 
-  handleSongSelect(event) {
-    const songIndex = event.currentTarget.value;
-    const song = this.state.songs[songIndex];
+  handleSongSelect(index) {
+    const song = this.state.songs[index];
     this.setState({ selectedSong: song });
   }
-
 
   render() {
     return (
       <div id="musicbox-container">
         <SongList songs={this.state.songs} onSelect={this.handleSongSelect} />
-        <SongDetails />
+        <SongDetails song={this.state.selectedSong} />
       </div>
     );
   }
