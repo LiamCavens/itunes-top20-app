@@ -1,0 +1,13 @@
+#nav-list {
+  width: 20vw;
+  height: 100vh;
+  overflow: scroll;
+  font-size: 15px;
+  box-shadow: 3px 0px 10px #bbb;
+  background-color: white;
+}
+
+#nav-header {
+  text-align: center;
+  margin: 2% 0 2% 40px;
+}

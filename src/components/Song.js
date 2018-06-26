@@ -1,11 +1,10 @@
 import React from "react";
+import "./Song.css";
 
 const Song = props => {
-    console.log(props);
-    
-    return (
-    <div>
-      <img src={props.smallImage} alt="" />
+  return (
+    <div className="song-container">
+      <img className="song-image" src={props.smallImage} alt="" />
       {props.fullTitle}
     </div>
   );

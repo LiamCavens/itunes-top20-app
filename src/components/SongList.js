@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Song from "./Song";
+import "./SongList.css";
 
 class SongList extends Component {
   render() {
@@ -10,8 +11,12 @@ class SongList extends Component {
         </li>
       );
     });
-
-    return <div>{songListItems}</div>;
+    return (
+      <div id="nav-list">
+        <p id="nav-header">Uk Top 20 Ranking</p>
+        <ol>{songListItems}</ol>
+      </div>
+    );
   }
 }
 

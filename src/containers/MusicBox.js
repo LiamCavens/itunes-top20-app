@@ -22,8 +22,8 @@ class MusicBox extends Component {
           artist: song["im:artist"].label,
           album: song["im:collection"].label,
           name: song["im:name"].label,
-          smallImage: song["im:image"][1],
-          largeImage: song["im:image"][2],
+          smallImage: song["im:image"][1].label,
+          largeImage: song["im:image"][2].label,
           sample: song.link[1].attributes.href,
           fullTitle: song.title.label
         }));
