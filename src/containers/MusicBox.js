@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import SongList from "../components/SongList";
+import SongDetails from "../components/SongDetails";
+import "./MusicBox.css";
 
 class MusicBox extends Component {
   constructor(props) {
@@ -17,7 +19,7 @@ class MusicBox extends Component {
     fetch(url)
       .then(res => res.json())
       .then(response => {
-        const songs = response.feed.entry.map(song => ({
+        const songs = response.feed.entry.map((song, index) => ({
           id: song.id.attributes["im:id"],
           artist: song["im:artist"].label,
           album: song["im:collection"].label,
@@ -25,10 +27,17 @@ class MusicBox extends Component {
           smallImage: song["im:image"][1].label,
           largeImage: song["im:image"][2].label,
           sample: song.link[1].attributes.href,
-          fullTitle: song.title.label
+          fullTitle: song.title.label,
+          selectSong: this.makeHandleSongSelect(index)
         }));
         this.setState({ songs });
       });
+  }
+
+  makeHandleSongSelect(index) {
+      return (
+          
+      )
   }
 
   handleSongSelect(event) {
@@ -37,10 +46,12 @@ class MusicBox extends Component {
     this.setState({ selectedSong: song });
   }
 
+
   render() {
     return (
-      <div>
+      <div id="musicbox-container">
         <SongList songs={this.state.songs} onSelect={this.handleSongSelect} />
+        <SongDetails />
       </div>
     );
   }

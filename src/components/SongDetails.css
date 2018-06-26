@@ -1,0 +1,11 @@
+#song-details {
+  width: 80%;
+  text-align: center;
+}
+
+.song-details-title {
+  background-color: #3949ab;
+  color: white;
+  margin: 0;
+  padding: 60px 0;
+}

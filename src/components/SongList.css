@@ -1,9 +1,9 @@
 #nav-list {
-  width: 20vw;
+  width: 20%;
   height: 100vh;
   overflow: scroll;
   font-size: 15px;
-  box-shadow: 3px 0px 10px #bbb;
+  box-shadow: 3px 0px 3px #999;
   background-color: white;
 }
 
