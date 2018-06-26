@@ -5,6 +5,13 @@
   font-size: 30px;
 }
 
+.deets-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .song-details-title {
   background-color: #3949ab;
   color: white;
@@ -19,6 +26,10 @@
 
 .song-details-image {
   align-self: center;
+}
+
+p {
+  margin: 10px 0;
 }
 
 .song-details-header2 {
