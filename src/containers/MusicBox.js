@@ -34,22 +34,24 @@ class MusicBox extends Component {
           largeImage: song["im:image"][2].label,
           sample: song.link[1].attributes.href,
           fullTitle: song.title.label,
-          selectSong: this.makeHandleSongSelect(index)
+          selectSong: this.handleSongSelect(index)
         }));
         const selectedSong = songs[0];
         this.setState({ songs, selectedSong });
       });
   }
 
-  makeHandleSongSelect(index) {
-    return () => {
-      this.handleSongSelect(index);
-    };
-  }
+  // makeHandleSongSelect(index) {
+  //   return () => {
+  //     this.handleSongSelect(index);
+  //   };
+  // }
 
   handleSongSelect(index) {
-    const song = this.state.songs[index];
-    this.setState({ selectedSong: song });
+    return () => {
+      const song = this.state.songs[index];
+      this.setState({ selectedSong: song });
+    };
   }
 
   render() {
